@@ -1,18 +1,21 @@
-
 #pragma once
 #include <iostream>
 
-class Pair {
+
+class Rational {
 private:
-    class Rational {
+    int numerator;
+    int denominator;
+
+public:
+    class Pair {
     private:
         int numerator;
         int denominator;
 
     public:
-        Rational(int a = 0, int b = 1) : numerator(a), denominator(b) {}
+        Pair(int a = 0, int b = 1) : numerator(a), denominator(b) {}
 
-        
         int getNumerator() const {
             return numerator;
         }
@@ -41,21 +44,16 @@ private:
         std::string toString() const;
     };
 
-    Rational rational;
+    Rational(int a = 0, int b = 1) : numerator(a), denominator(b) {}
 
-public:
-    Pair(int a = 0, int b = 1) : rational(a, b) {}
+    Rational operator+(const Rational& other) const;
 
-   
-    Pair operator+(const Pair& other) const;
+    Rational operator-(const Rational& other) const;
 
-    Pair operator-(const Pair& other) const;
+    Rational operator*(const Rational& other) const;
 
-    Pair operator*(const Pair& other) const;
+    Rational operator/(const Rational& other) const;
 
-    Pair operator/(const Pair& other) const;
-
-  
     int getNumerator() const;
 
     int getDenominator() const;

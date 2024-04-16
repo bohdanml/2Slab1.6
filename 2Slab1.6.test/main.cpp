@@ -1,31 +1,37 @@
-
 #include <iostream>
-#include "pair.h"
+#include "rational.h"
 
 int main() {
-    Pair pair1;
+    Rational::Pair pair1;
     pair1.Read();
 
-    Pair pair2;
+    Rational::Pair pair2;
     pair2.Read();
 
-    Pair sum = pair1 + pair2;
-    Pair difference = pair1 - pair2;
-    Pair product = pair1 * pair2;
-    Pair quotient = pair1 / pair2;
-    //(a, b) + (c, d)
+    Rational sum(pair1.getNumerator(), pair1.getDenominator());
+    sum = sum + Rational(pair2.getNumerator(), pair2.getDenominator());
+
+    Rational difference(pair1.getNumerator(), pair1.getDenominator());
+    difference = difference - Rational(pair2.getNumerator(), pair2.getDenominator());
+
+    Rational product(pair1.getNumerator(), pair1.getDenominator());
+    product = product * Rational(pair2.getNumerator(), pair2.getDenominator());
+
+    Rational quotient(pair1.getNumerator(), pair1.getDenominator());
+    quotient = quotient / Rational(pair2.getNumerator(), pair2.getDenominator());
+
     std::cout << "Sum: ";
     sum.Display();
     std::cout << std::endl;
-    //(a, b) - (c, d)
+
     std::cout << "Difference: ";
     difference.Display();
     std::cout << std::endl;
-    //(a, b) * (c, d)
+
     std::cout << "Product: ";
     product.Display();
     std::cout << std::endl;
-    // (a, b) / (c, d)
+
     std::cout << "Quotient: ";
     quotient.Display();
     std::cout << std::endl;
